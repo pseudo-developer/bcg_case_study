@@ -1,0 +1,30 @@
+{
+  "input_files": {
+        "charges":{
+          "file_type"      : "csv",
+          "input_file_path": "../raw_data/Charges_use.csv"
+        }
+        ,"damages":{
+          "file_type"      : "csv",
+          "input_file_path": "../raw_data/Damages_use.csv"
+        }
+        ,"endorse_use":{
+          "file_type"      : "csv",
+          "input_file_path": "../raw_data/Endorse_use.csv"
+        }
+        ,"primary_person_use":{
+          "file_type"      : "csv",
+          "input_file_path": "../raw_data/Primary_Person_use.csv"
+        }
+        ,"restrict_use":{
+          "file_type"      : "csv",
+          "input_file_path": "../raw_data/Restrict_use.csv"
+        }
+        ,"units_use":{
+          "file_type"      : "csv",
+          "input_file_path": "../raw_data/Units_use.csv"
+        }
+  }
+}
+
+

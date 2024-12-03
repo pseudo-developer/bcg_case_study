@@ -18,3 +18,27 @@ case_study_bcg/
 ├── .gitignore            # Specifies files and directories to be ignored by Git
 ├── README.md             # Documentation file (this file)
 ```
+
+
+## Directory/Module Details
+```env_case_study/```
+
+A Python virtual environment folder for managing dependencies.
+Excluded from version control via .gitignore.
+raw_data/
+
+Stores the raw datasets (e.g., Charges_use.csv, Damages_use.csv).
+Used by the modules to load data for processing.
+config/
+
+Contains configuration files like json_config.json.
+Defines relative paths for datasets and other settings. This ensures modularity and avoids hardcoding file paths.
+solutions/
+
+Contains Python scripts or Jupyter notebooks for executing the data analysis workflows.
+Example: solutions.ipynb includes end-to-end data processing using the modules.
+modules/
+
+Houses custom Python modules:
+setup.py: Initializes the Spark session and provides functions to load datasets dynamically.
+utils.py: Handles reading configurations, file operations, and other utility functions.

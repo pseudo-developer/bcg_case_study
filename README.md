@@ -1,22 +1,24 @@
 # Case Study: Data Engineering with PySpark
 A data engineering project focused on processing and analyzing crash-related datasets using PySpark, with a structured, modular approach.
 
-
 - [Case Study: Data Engineering with PySpark](#case-study-data-engineering-with-pyspark)
-  - [**Project Structure**](#project-structure)
-  - [**Directory/Module Details**](#directorymodule-details)
-  - [**Features**](#features)
-  - [**Prerequisites**](#prerequisites)
-  - [**Installation in Local**](#installation-in-local)
-    - [Clone the Repository](#1-clone-the-repository)
-    - [Set Up a Virtual Environment](#2-set-up-a-virtual-environment)
-    - [Install Dependencies](#3-install-dependencies)
-  - [**Usage**](#usage)
-    - [Run the Solutions Notebook](#1-run-the-solutions-notebook)
-    - [Data Initialization](#2-data-initialization)
-    - [Modify Analysis Logic](#3-modify-analysis-logic-if-needed)
+  - [Project Structure](#project-structure)
+  - [Directory/Module Details](#directorymodule-details)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [Installation in local](#installation-in-local)
+    - [1. Clone the Repository:](#1-clone-the-repository)
+    - [2. Set Up a Virtual Environment:](#2-set-up-a-virtual-environment)
+    - [3. Install Dependencies:](#3-install-dependencies)
+  - [Usage](#usage)
+    - [1. Run the Solutions Notebook:](#1-run-the-solutions-notebook)
+    - [2. Data Initialization:](#2-data-initialization)
+    - [3. Modify Analysis Logic (if needed):](#3-modify-analysis-logic-if-needed)
+  - [Example Config (config/json\_config.json)](#example-config-configjson_configjson)
   - [Contributing](#contributing)
   - [Contact](#contact)
+  - [Thanks for Visiting the Repo! 😊](#thanks-for-visiting-the-repo-)
+
 
 
 

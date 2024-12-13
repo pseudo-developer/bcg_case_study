@@ -1,0 +1,114 @@
+This is the set of steos needed to install and run pyspark just using VS code/Pycharm without extensively installing spark.
+- Here we will just do "pip install pyspark" and other set of things needed to run spark. 
+- One thing which I could not figure out is how to write data to any format (be it - csv, parquet, delta, etc) using this way of installation. I suspect that since spark was not installed locally, so this is not the most appropriate approach to install and use pyspark on system.
+
+
+1. Installed vs code, installed related extensions of python, git , jupyter notebook, etc. Till here we are good to run python commands with jupyter notebook support.
+
+2. 
+2.1 Created a folder of working directory. Created virtual environment in it using code :  (Refer this video - https://www.youtube.com/watch?v=bf7pCxj6mEg)
+(code): python -m venv env_case_study
+
+2.2 Activate the venv using below example steps -
+-> python -m venv <name of venv without any quotes>
+-> Activate the venv using below command. First take the relative path of the "Scripts" file from navigation pane, then activate it:
+
+(code): env_case_study\Scripts\activate
+
+
+## Git set-up & NOT-Tracking virtual env directory
+3. Initilised git in the present wording directory. (NOTE - Make sure "env_case_study" directory is kept out of Tracking changes).
+
+How to make sure the virtual-env directory (env_case_study) is kept out of being tracked ? 
+
+
+So for this, create a file caled ".gitignore", and write in it like this "env_case_study/". 
+
+Steps to Create .gitignore
+a. Navigate to Your Project Folder (Root): Open a terminal and navigate to your project folder: 
+(code): cd ~/Desktop/case_study_bcg
+
+b. Create the .gitignore File:
+
+If you're using a text editor, you can create a new file named .gitignore in the case_study_bcg (ROOT WORKING DIRECTORY of project) folder.
+Alternatively, use this command in the terminal:
+
+c. Add the Virtual Environment Folder to .gitignore: Open the .gitignore file and add the name of your virtual environment folder (env_case_study):
+(code) : env_case_study/
+
+This will make sure that we dont want this directory to be trakced in changes by GIT. 
+
+But what if I have already included the "env_case_study" directory in tracking changes? We can run the command 
+(code): "git rm -r --cached env_case_study". 
+
+Then run the commit command: 
+(code): git commit -m "Remove virtual environment from Git tracking"
+
+To verify whether this changes has been properly set or not, we can type out a command again. Verify .gitignore Configuration: To confirm that the folder is being ignored, you can use the following command: 
+
+(code): git status
+
+
+NOTE : Most appropriate step is (if you want to not get into trouble that all the files within the virtual env directory are getting tracked by GT somehow and you dont want that), just follow this step:
+
+- create virtual env
+- create .gitignore file
+- It will start working expected. But make sure you do it at very beginning of the set-up of the project.
+- If in case you forgot doing this in the beginning while setting up project directory, try "reinitilising git" in the root directory of the project.
+
+
+## 3.1 Git_set_up_bcg_caseStudy
+…or create a new repository on the command line
+echo "# bcg_case_study" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/pseudo-developer/bcg_case_study.git
+git push -u origin main
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/pseudo-developer/bcg_case_study.git
+git branch -M main
+git push -u origin main
+
+
+
+
+# Then Install all necessary packages:
+4. Installed pyspark package using code in vs code terminal at our environment (env_case_study):
+(code): pip install pyspark
+
+4.1 Create requirements.txt file :
+(code): pip freeze > requirements.txt
+
+In case, we have the requirements.txt file from some project and it contains all the dependencies we want to install in our project we can this command (if the requirements.txt file is present in the root directory ):
+
+pip install -r requirements.txt
+
+
+5. Now tried running code. This FAILED to even create a SparkSession for me. The reason after asking chatgpt i found was JAVA was not installed and the code was trying to hit JAVA to process it, since Java Runtime Env is required to execute the pyspark code. 
+
+So the solution chatgpt suggested me to verify if I have java installe first of all, if no "install it", if yes, check the system variable are correctly set or not.
+
+I found java was not set, so installed it using "OpenJdk" (which is free, as Oracle has started charging for java now).
+
+NOTE - We had to install "JDK" not the "JRE". I personally installed JDK8. While installing itself it asked me to set the variables and path, so i dont have to bother about it myself. The path where it got installed was something like this : "C:\Program Files\OpenLogic\jdk-8.0.432.06-hotspot".
+
+This same varibale was present as a system-variable in Environment-variable also but with name "path", although chatgpt suggested me it should be "JAVA_HOME" (the name of the varibale). See below quote from chatgpt:
+
+(quote): Yes, the Path variable you see with the value C:\Program Files\OpenLogic\jdk-8.0.432.06-hotspot\bin is exactly what I was referring to! It seems the JDK installer automatically added it for you during installation, which is great because you don’t need to do it manually.
+
+
+6. Finally I installed it and ran the code, "java -version" and got the output as this:
+(code output):
+(env_case_study) PS C:\Users\Ankit\Desktop\case_study_bcg> java -version
+openjdk version "1.8.0_432-432"
+OpenJDK Runtime Environment (build 1.8.0_432-432-b06)
+OpenJDK 64-Bit Server VM (build 25.432-b06, mixed mode)
+
+
+7. Hurray! Code ran and I got the output of csv file as well.
+
+
